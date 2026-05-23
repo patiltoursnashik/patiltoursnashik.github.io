@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patil Tours & Travels - Nashik | Best Cab Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B1A;
+    --deep: #1A0A00;
+    --cream: #FFF8F0;
+    --gold: #FFB347;
+    --dark-brown: #2D1200;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--deep); overflow-x: hidden; padding-bottom: 90px; }
+
+  /* HERO */
+  .hero { background: var(--dark-brown); min-height: 100vh; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(255,107,26,0.3) 0%, transparent 70%); }
+  .hero::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 80px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%); }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; position: relative; z-index: 10; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); font-weight: 700; }
+  .logo span { color: var(--saffron); }
+  .nav-call { background: var(--saffron); color: white; padding: 10px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,107,26,0.5); } 50% { box-shadow: 0 0 0 12px rgba(255,107,26,0); } }
+
+  .hero-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 60px 40px 120px; position: relative; z-index: 5; max-width: 700px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,107,26,0.2); border: 1px solid rgba(255,107,26,0.4); color: var(--gold); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; width: fit-content; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 72px); color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 em { color: var(--saffron); font-style: normal; }
+  .hero p { color: rgba(255,255,255,0.7); font-size: 18px; line-height: 1.6; margin-bottom: 40px; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary { background: var(--saffron); color: white; padding: 18px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 30px rgba(255,107,26,0.4); transition: all 0.3s; }
+  .btn-primary:hover { transform: translateY(-3px); }
+  .btn-whatsapp { background: #25D366; color: white; padding: 18px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 30px rgba(37,211,102,0.3); transition: all 0.3s; }
+  .btn-whatsapp:hover { transform: translateY(-3px); }
+
+  /* STATS */
+  .stats-bar { background: var(--saffron); padding: 20px 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+  .stat { text-align: center; color: white; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; display: block; }
+  .stat-label { font-size: 12px; opacity: 0.85; font-weight: 500; }
+
+  /* SECTIONS */
+  .section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+  .section-label { color: var(--saffron); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); color: var(--dark-brown); margin-bottom: 48px; line-height: 1.2; }
+
+  /* ROUTES */
+  .routes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+  .route-card { background: white; border-radius: 20px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid rgba(255,107,26,0.1); transition: all 0.3s; text-decoration: none; color: inherit; display: block; }
+  .route-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(255,107,26,0.15); border-color: var(--saffron); }
+  .route-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .route-from { font-size: 12px; color: #999; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+  .route-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--dark-brown); margin: 4px 0 8px; font-weight: 700; }
+  .route-distance { font-size: 13px; color: var(--saffron); font-weight: 600; }
+
+  /* FLEET */
+  .fleet-section { background: var(--dark-brown); padding: 80px 40px; }
+  .fleet-inner { max-width: 1100px; margin: 0 auto; }
+  .fleet-section .section-title { color: white; }
+  .fleet-section .section-label { color: var(--gold); }
+  .fleet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .fleet-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,107,26,0.2); border-radius: 16px; padding: 24px 20px; text-align: center; transition: all 0.3s; }
+  .fleet-card:hover { background: rgba(255,107,26,0.1); border-color: var(--saffron); transform: translateY(-4px); }
+  .fleet-emoji { font-size: 36px; margin-bottom: 12px; display: block; }
+  .fleet-name { font-family: 'Playfair Display', serif; font-size: 16px; color: white; font-weight: 700; margin-bottom: 6px; }
+  .fleet-desc { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  /* WHY US */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .why-card { background: white; border-radius: 20px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 4px solid var(--saffron); }
+  .why-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .why-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--dark-brown); margin-bottom: 8px; font-weight: 700; }
+  .why-desc { font-size: 14px; color: #666; line-height: 1.6; }
+
+  /* CTA */
+  .cta-section { background: linear-gradient(135deg, var(--saffron) 0%, #FF8C42 100%); padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: '🚗'; position: absolute; font-size: 200px; opacity: 0.08; right: -20px; top: 50%; transform: translateY(-50%); }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); color: white; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 18px; margin-bottom: 40px; }
+  .cta-number { font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 64px); color: white; font-weight: 900; display: block; margin-bottom: 32px; }
+  .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .btn-white { background: white; color: var(--saffron); padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; }
+  .btn-white:hover { transform: translateY(-3px); }
+  .btn-outline-white { background: transparent; color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 10px; border: 2px solid rgba(255,255,255,0.7); transition: all 0.3s; }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.15); transform: translateY(-3px); }
+
+  /* FOOTER */
+  footer { background: var(--deep); padding: 40px; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; }
+  footer strong { color: var(--saffron); }
+
+  /* STICKY BAR */
+  .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-brown); padding: 16px 20px; display: flex; gap: 12px; z-index: 1000; box-shadow: 0 -4px 30px rgba(0,0,0,0.3); }
+  .sticky-bar a { flex: 1; padding: 14px; border-radius: 12px; text-align: center; font-weight: 700; font-size: 16px; text-decoration: none; }
+  .sticky-call { background: var(--saffron); color: white; }
+  .sticky-wa { background: #25D366; color: white; }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .hero-content { padding: 40px 20px 100px; }
+    .section { padding: 60px 20px; }
+    .stats-bar { gap: 30px; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <nav>
+    <div class="logo">Patil <span>Tours</span> & Travels</div>
+    <a href="tel:07276201904" class="nav-call">📞 Call Now</a>
+  </nav>
+  <div class="hero-content">
+    <div class="hero-badge">⭐ Nashik's Trusted Cab Service Since 1994</div>
+    <h1>Your Journey,<br>Our <em>Promise</em></h1>
+    <p>Premium AC cab service from Nashik to Pune, Mumbai, Shirdi, Goa & across India. On-time pickup, verified drivers, fixed prices.</p>
+    <div class="hero-buttons">
+      <a href="tel:07276201904" class="btn-primary">📞 Call to Book</a>
+      <a href="https://wa.me/917276201904" class="btn-whatsapp">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-number">30+</span><span class="stat-label">Years Experience</span></div>
+  <div class="stat"><span class="stat-number">6</span><span class="stat-label">Car Options</span></div>
+  <div class="stat"><span class="stat-number">24/7</span><span class="stat-label">Available</span></div>
+  <div class="stat"><span class="stat-number">₹0</span><span class="stat-label">Hidden Charges</span></div>
+</div>
+
+<div class="section">
+  <p class="section-label">Popular Routes</p>
+  <h2 class="section-title">Where Do You Want<br>To Go?</h2>
+  <div class="routes-grid">
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">🏙️</span><span class="route-from">From Nashik</span><div class="route-name">→ Pune</div><span class="route-distance">212 km • ~3.5 hrs</span></a>
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">🌆</span><span class="route-from">From Nashik</span><div class="route-name">→ Mumbai</div><span class="route-distance">167 km • ~3 hrs</span></a>
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">🛕</span><span class="route-from">From Nashik</span><div class="route-name">→ Shirdi</div><span class="route-distance">89 km • ~1.5 hrs</span></a>
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">🏖️</span><span class="route-from">From Nashik</span><div class="route-name">→ Goa</div><span class="route-distance">430 km • ~8 hrs</span></a>
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">🏛️</span><span class="route-from">From Nashik</span><div class="route-name">→ Aurangabad</div><span class="route-distance">185 km • ~3 hrs</span></a>
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">🙏</span><span class="route-from">From Nashik</span><div class="route-name">→ Trimbakeshwar</div><span class="route-distance">28 km • ~45 min</span></a>
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">✈️</span><span class="route-from">Nashik</span><div class="route-name">Airport Transfers</div><span class="route-distance">Ozar Airport • Any time</span></a>
+    <a href="tel:07276201904" class="route-card"><span class="route-icon">🗺️</span><span class="route-from">Pan India</span><div class="route-name">Any Destination</div><span class="route-distance">Delhi • Rajasthan • Konkan</span></a>
+  </div>
+</div>
+
+<section class="fleet-section">
+  <div class="fleet-inner">
+    <p class="section-label">Our Fleet</p>
+    <h2 class="section-title">Choose Your Comfort</h2>
+    <div class="fleet-grid">
+      <div class="fleet-card"><span class="fleet-emoji">🚗</span><div class="fleet-name">Swift Dzire</div><div class="fleet-desc">4 seater • AC • Couples & small families</div></div>
+      <div class="fleet-card"><span class="fleet-emoji">🚙</span><div class="fleet-name">Toyota Rumion</div><div class="fleet-desc">7 seater • AC • Comfortable family rides</div></div>
+      <div class="fleet-card"><span class="fleet-emoji">🚙</span><div class="fleet-name">Maruti Ertiga</div><div class="fleet-desc">7 seater • AC • Spacious & affordable</div></div>
+      <div class="fleet-card"><span class="fleet-emoji">🚐</span><div class="fleet-name">Innova Crysta</div><div class="fleet-desc">7 seater • Premium luxury cab</div></div>
+      <div class="fleet-card"><span class="fleet-emoji">🚐</span><div class="fleet-name">Innova HyCross</div><div class="fleet-desc">7 seater • Top luxury experience</div></div>
+      <div class="fleet-card"><span class="fleet-emoji">🚌</span><div class="fleet-name">Tempo Traveller</div><div class="fleet-desc">12-17 seater • Groups & pilgrimages</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <p class="section-label">Why Choose Us</p>
+  <h2 class="section-title">Nashik's Most Trusted<br>Cab Service</h2>
+  <div class="why-grid">
+    <div class="why-card"><span class="why-icon">⏰</span><div class="why-title">Always On Time</div><div class="why-desc">We track your flight & train. Never miss your connection — we arrive before you need us.</div></div>
+    <div class="why-card"><span class="why-icon">💰</span><div class="why-title">Fixed Prices</div><div class="why-desc">No surge pricing, no hidden charges. What we quote is what you pay — guaranteed.</div></div>
+    <div class="why-card"><span class="why-icon">👮</span><div class="why-title">Verified Drivers</div><div class="why-desc">All drivers are police verified, experienced, and trained for safe long-distance travel.</div></div>
+    <div class="why-card"><span class="why-icon">❄️</span><div class="why-title">All AC Vehicles</div><div class="why-desc">Every car in our fleet is fully air conditioned and well maintained for your comfort.</div></div>
+    <div class="why-card"><span class="why-icon">📞</span><div class="why-title">24/7 Available</div><div class="why-desc">Call anytime — early morning flights, late night arrivals, we are always ready.</div></div>
+    <div class="why-card"><span class="why-icon">🏆</span><div class="why-title">Since 1994</div><div class="why-desc">30+ years serving Nashik. Thousands of happy customers trust us for every journey.</div></div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <h2>Ready to Book Your Cab?</h2>
+  <p>Call or WhatsApp us right now — instant confirmation!</p>
+  <span class="cta-number">07276201904</span>
+  <div class="cta-buttons">
+    <a href="tel:07276201904" class="btn-white">📞 Call Now</a>
+    <a href="https://wa.me/917276201904" class="btn-outline-white">💬 WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Patil Tours & Travels</strong></p>
+  <p style="margin-top:8px;">No 6, Vastu Row House, Anand Nagar, Pathardi Phata, Nashik, Maharashtra</p>
+  <p style="margin-top:8px;">📞 07276201904 &nbsp;|&nbsp; ✉️ patiltours1994@gmail.com</p>
+  <p style="margin-top:16px;font-size:12px;">© 2026 Patil Tours & Travels. All rights reserved.</p>
+</footer>
+
+<div class="sticky-bar">
+  <a href="tel:07276201904" class="sticky-call">📞 Call Now</a>
+  <a href="https://wa.me/917276201904" class="sticky-wa">💬 WhatsApp</a>
+</div>
+
+</body>
+</html>
